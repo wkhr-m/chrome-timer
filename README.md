@@ -1,27 +1,27 @@
 # ChromeTimer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.1.
 
-## Development server
+ChromeTimer is extension of chrome.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## 使い方
 
-## Code scaffolding
+- ng build
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Chrome の拡張機能管理画面で、dist 配下のものを読み込む
 
-## Build
+## 参考文献
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- http://tweeeety.hateblo.jp/entry/2015/03/04/231354
+- https://developer.chrome.com/extensions/declare_permissions
+- https://qiita.com/Yuta_Fujiwara/items/daf41429f95caec82982
+- http://kenzauros.com/blog/run-something-periodically-with-event-pages-of-chrome-extension-api/
+- http://tech.quartetcom.co.jp/2015/12/09/lets-develop-chrome-extension/
 
-## Running unit tests
+## 出会った問題
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- popup.html がでてくるけど、中の angular の部分がでてこない
+  https://stackoverflow.com/questions/42148593/google-chrome-extension-using-angular-cli-stuck-on-loadin
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- background の scripts が読み込まれない
+  angular.json の asset に書き忘れていた
