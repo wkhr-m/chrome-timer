@@ -1,8 +1,10 @@
 <div class="main">
-  <div class="timer">
-    {{time.minute}} : {{time.seconde}}
-  </div>
+  <div class="timer">{{ time.minute }} : {{ time.second }}</div>
   <div class="button">
-    <w-button [label]="timerActive ?  'Stop': 'Start'" type="timerActive ? 'warning' | 'default'" (click)="onClick()"></w-button>
+    <w-button
+      [label]="timerActive ? 'Stop' : 'Start'"
+      type="timerActive ? 'warning' | 'default'"
+      (click)="onClick()"
+    ></w-button>
   </div>
 </div>

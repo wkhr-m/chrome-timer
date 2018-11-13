@@ -1,40 +1,36 @@
-var greenColor = [76, 187, 23, 255];
-var yellowColor = [250, 150, 0, 255];
+const initValue = {
+  time: {
+    hour: 0,
+    minute: 60,
+    second: 0
+  },
+  setting: "top",
+  active: false
+};
+
+var interval;
+var activeTimer = false;
 
 function getConfig() {
-  let value = localStorage['chrome-timer'];
+  let value = localStorage["chrome-timer"];
   if (value) {
     return value;
   } else {
-    return defaultSetting;
+    return initValue;
   }
 }
 
 function setConfig(value) {
-  localStorage['chrome-timer'] = value;
-
+  localStorage["chrome-timer"] = value;
 }
-
-var defaultSetting = {
-  'time': {
-    'hour': 0,
-    'minute': 60,
-    'seconde': 0,
-  },
-  'setting': 'top'
-}
-
-var interval;
 
 function countStart(time) {
-  if (!time) {
-    time = defaultSetting['time'];
-  }
+  activeTimer = true;
   this.interval = setInterval(() => {
-    --time.seconde;
-    if (time.seconde < 0) {
+    --time.second;
+    if (time.second < 0) {
       --time.minute;
-      time.seconde = 59;
+      time.second = 59;
     }
     if (time.minute == 0) {
       clearInterval(this.interval);
@@ -44,9 +40,25 @@ function countStart(time) {
 }
 
 function noticeCount(time) {
+  chrome.browserAction.setBadgeText({
+    text: formatTime(time)
+  });
+  chrome.browserAction.setBadgeBackgroundColor({
+    color: [76, 187, 23, 255]
+  });
+}
 
+function formatTime(time) {
+  if (time.hour) {
+    return time.hour + "h";
+  } else if (time.minute) {
+    return time.minute + "min";
+  } else {
+    return time.second + "s";
+  }
 }
 
 function countStop() {
+  activeTimer = false;
   clearInterval(this.interval);
 }

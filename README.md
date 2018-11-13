@@ -25,3 +25,7 @@ ChromeTimer is extension of chrome.
 
 - background の scripts が読み込まれない
   angular.json の asset に書き忘れていた
+
+# 心残り
+
+background を typescript にしたかった
