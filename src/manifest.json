@@ -7,9 +7,16 @@
     "default_popup": "index.html",
     "default_icon": "assets/icon.png"
   },
-  "permissions": ["tabs", "storage", "alarms"],
+  "permissions": [
+    "tabs",
+    "storage",
+    "alarms",
+    "notifications"
+  ],
   "background": {
-    "scripts": ["event.js"],
+    "scripts": [
+      "event.js"
+    ],
     "persistent": false
   },
   "icons": {

@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { EventEmitter } from 'events';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'w-button',
@@ -7,8 +6,8 @@ import { EventEmitter } from 'events';
   styleUrls: ['./button.component.less']
 })
 export class ButtonComponent implements OnInit {
-  @Input()label:string = 'Button';
-  @Input()type: string= 'default';
+  @Input() label: string = 'Button';
+  @Input() type: string = 'default';
 
   constructor() { }
 

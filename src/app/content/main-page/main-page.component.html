@@ -1,10 +1,15 @@
 <div class="main">
-  <div class="timer">{{ time.minute }} : {{ time.second }}</div>
+  <div class="timer" *ngIf="form" [formGroup]="form">
+    <ng-container *ngIf="timerActive">
+      {{ time.hour }} : {{ time.minute }} : {{ time.second }}
+    </ng-container>
+    <ng-container *ngIf="!timerActive">
+      <input type="number" formControlName="hour" />:
+      <input type="number" formControlName="minute" />:
+      <input type="number" formControlName="second" />
+    </ng-container>
+  </div>
   <div class="button">
-    <w-button
-      [label]="timerActive ? 'Stop' : 'Start'"
-      type="timerActive ? 'warning' | 'default'"
-      (click)="onClick()"
-    ></w-button>
+    <w-button [label]="timerActive ? 'Stop' : 'Start'" (click)="onClick()"></w-button>
   </div>
 </div>
